@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 
 struct AppsView: View {
+    @Environment(\.openURL) var openURL
     var iPhoneStarterKit = AppsStarterKit()
     var topFreeApps = TopFreeApps()
     var numOfRow = 3
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
                     HStack {
                         VStack(alignment: .leading) {
@@ -72,7 +73,7 @@ struct AppsView: View {
                     BottomButtonsView()
                     Divider()
                     Button(action: {
-                        print("Button action")
+                        openURL(URL(string: "https://www.apple.com")!)
                     }) {
                         HStack {
                             Text("Terms & Conditions >")
@@ -84,7 +85,8 @@ struct AppsView: View {
                 }
                 
             }
-        }.navigationBarTitle("Apps", displayMode: .automatic)
+        }.navigationBarTitle("Apps", displayMode: .inline)
+        .navigationBarHidden(true)
     }
     
     func loadProfile() {

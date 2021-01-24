@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 struct AppsView: View {
-    var appStorage = AppStorage()
+    var iPhoneStarterKit = AppsStarterKit()
+    var topFreeApps = TopFreeApps()
     var numOfRow = 3
     var body: some View {
         ScrollView {
@@ -33,8 +34,35 @@ struct AppsView: View {
                     FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
                 }
             })
+            
             Divider()
-            HorizontalScrollView(items: self.appStorage.currentTopApps)
+            VStack(alignment: .leading) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("iPhone Starter Kit").font(.title2).bold()
+                    }
+                    Spacer()
+                    Button(action: self.loadProfile, label: {
+                        Text("See All")
+                    })
+                }
+            }.padding([.leading, .trailing, .top])
+            HorizontalScrollView(items: self.iPhoneStarterKit.listOfApps)
+            
+            Divider()
+            VStack(alignment: .leading) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Top Free Apps").font(.title2).bold()
+                    }
+                    Spacer()
+                    Button(action: self.loadProfile, label: {
+                        Text("See All")
+                    })
+                }
+            }.padding([.leading, .trailing, .top])
+
+            HorizontalScrollView(items: self.topFreeApps.listOfApps)
          }
     }
     
@@ -44,27 +72,51 @@ struct AppsView: View {
 
 }
 
-struct AppStorage {
-    var currentTopApps = [
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo")
+struct AppsStarterKit {
+    var listOfApps = [
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1")
+    ]
+}
+
+struct TopFreeApps {
+    var listOfApps = [
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2")
     ]
 }
 

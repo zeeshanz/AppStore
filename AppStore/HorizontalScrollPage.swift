@@ -40,12 +40,12 @@ struct AppCell: View {
                 Text(data.title)
                 Text(data.subTitle).font(.subheadline).foregroundColor(.gray)
             }
-        }.padding().frame(width: (UIApplication.shared.windows.first?.frame.width ?? 300) - 50, alignment: .leading)
+        }.padding([.leading, .trailing]).frame(width: (UIApplication.shared.windows.first?.frame.width ?? 300) - 50, alignment: .leading)
     }
 }
 
 struct HorizontalScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalScrollView(items: AppStorage().currentTopApps)
+        HorizontalScrollView(items: AppsStarterKit().listOfApps)
     }
 }

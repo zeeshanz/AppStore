@@ -13,58 +13,78 @@ struct AppsView: View {
     var topFreeApps = TopFreeApps()
     var numOfRow = 3
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Apps").font(.largeTitle).bold()
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Apps").font(.largeTitle).bold()
+                        }
+                        Spacer()
+                        Button(action: self.loadProfile, label: {
+                            Image("Profile").resizable().frame(width: 40, height: 40, alignment: .trailing)
+                        })
                     }
-                    Spacer()
-                    Button(action: self.loadProfile, label: {
-                        Image("Profile").resizable().frame(width: 40, height: 40, alignment: .trailing)
-                    })
-                }
-            }.padding()
-            Divider()
-            ScrollView(.horizontal, showsIndicators: false, content: {
-                HStack {
-                    FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
-                    FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
-                    FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
-                    FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
-                    FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
-                }
-            })
-            
-            Divider()
-            VStack(alignment: .leading) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("iPhone Starter Kit").font(.title2).bold()
+                }.padding()
+                Divider()
+                
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack {
+                        FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
+                        FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
+                        FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
+                        FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
+                        FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
                     }
-                    Spacer()
-                    Button(action: self.loadProfile, label: {
-                        Text("See All")
-                    })
-                }
-            }.padding([.leading, .trailing, .top])
-            HorizontalScrollView(items: self.iPhoneStarterKit.listOfApps)
-            
-            Divider()
-            VStack(alignment: .leading) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Top Free Apps").font(.title2).bold()
+                })
+                Divider()
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("iPhone Starter Kit").font(.title2).bold()
+                        }
+                        Spacer()
+                        Button(action: self.loadProfile, label: {
+                            Text("See All")
+                        })
                     }
-                    Spacer()
-                    Button(action: self.loadProfile, label: {
-                        Text("See All")
-                    })
+                }.padding([.leading, .trailing, .top])
+                HorizontalScrollView(items: self.iPhoneStarterKit.listOfApps)
+                Divider()
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Top Free Apps").font(.title2).bold()
+                        }
+                        Spacer()
+                        Button(action: self.loadProfile, label: {
+                            Text("See All")
+                        })
+                    }
+                }.padding([.leading, .trailing, .top])
+                
+                HorizontalScrollView(items: self.topFreeApps.listOfApps)
+                Group {
+                    Divider()
+                    QuickLinksView()
+                    BottomButtonsView()
+                    Divider()
+                    Button(action: {
+                        print("Button action")
+                    }) {
+                        HStack {
+                            Text("Terms & Conditions >")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.gray)
+                        .cornerRadius(10)
+                    }.padding()
                 }
-            }.padding([.leading, .trailing, .top])
-
-            HorizontalScrollView(items: self.topFreeApps.listOfApps)
-         }
+                
+            }
+        }.navigationBarTitle("Apps", displayMode: .automatic)
     }
     
     func loadProfile() {

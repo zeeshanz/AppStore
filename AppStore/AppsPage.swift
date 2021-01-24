@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 struct AppsView: View {
-    var gameStorage = GameStorage()
+    var appStorage = AppStorage()
     var numOfRow = 3
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Today").font(.largeTitle).bold()
+                        Text("Apps").font(.largeTitle).bold()
                     }
                     Spacer()
                     Button(action: self.loadProfile, label: {
@@ -24,16 +24,17 @@ struct AppsView: View {
                     })
                 }
             }.padding()
+            Divider()
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack {
-                    FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
+                    FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
                     FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
                     FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
                     FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
                 }
             })
             Divider()
-            HorizontalScrollView(items: self.gameStorage.thisWeeksGames)
+            HorizontalScrollView(items: self.appStorage.currentTopApps)
          }
     }
     
@@ -43,31 +44,31 @@ struct AppsView: View {
 
 }
 
-struct GameStorage {
-    var thisWeeksGames = [
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo"),
-        GameData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-game-logo")
+struct AppStorage {
+    var currentTopApps = [
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo"),
+        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-app-logo")
     ]
 }
 
-struct GameData: Identifiable {
+struct AppData: Identifiable {
     var id = UUID()
     var title = String()
     var subTitle = String()

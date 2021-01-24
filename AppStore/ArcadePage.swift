@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ArcadeView: View {
     var body: some View {
-        Text("Hello, world!")
+        Text("Hello, Arcade Page!")
             .padding()
     }
 }

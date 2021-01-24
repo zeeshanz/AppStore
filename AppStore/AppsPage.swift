@@ -28,10 +28,11 @@ struct AppsView: View {
             Divider()
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack {
-                    FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
-                    FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
-                    FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
-                    FeaturedPostView(captionText: "New Update", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sim-city")
+                    FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
+                    FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
+                    FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
+                    FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
+                    FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
                 }
             })
             
@@ -74,49 +75,53 @@ struct AppsView: View {
 
 struct AppsStarterKit {
     var listOfApps = [
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1"),
-        AppData(id: UUID(), title: "CBSAApp", subTitle: "Sample App 1", image: "sample-logo-1")
+        AppData(id: UUID(), title: "PicsArt Photo & Video Editor", subTitle: "Sample App 1", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Splice Video Editor", subTitle: "Sample App 2", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SnapChat", subTitle: "Sample App 3", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Magisto Video Editor", subTitle: "Sample App 4", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SWEAT: Fitness App for Women", subTitle: "Sample App 5", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Calm: Sleep, Meditate, Relax", subTitle: "Sample App 6", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "PicsArt Photo & Video Editor", subTitle: "Sample App 7", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Splice Video Editor", subTitle: "Sample App 8", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SnapChat", subTitle: "Sample App 3", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Magisto Video Editor", subTitle: "Sample App 9", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SWEAT: Fitness App for Women", subTitle: "Sample App 10", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Calm: Sleep, Meditate, Relax", subTitle: "Sample App 11", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "PicsArt Photo & Video Editor", subTitle: "Sample App 12", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Splice Video Editor", subTitle: "Sample App 13", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SnapChat", subTitle: "Sample App 14", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Magisto Video Editor", subTitle: "Sample App 15", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SWEAT: Fitness App for Women", subTitle: "Sample App 16", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Calm: Sleep, Meditate, Relax", subTitle: "Sample App 17", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "PicsArt Photo & Video Editor", subTitle: "Sample App 18", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Splice Video Editor", subTitle: "Sample App 19", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SnapChat", subTitle: "Sample App 20", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Magisto Video Editor", subTitle: "Sample App 21", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "SWEAT: Fitness App for Women", subTitle: "Sample App 22", image: "sample-logo-1"),
+        AppData(id: UUID(), title: "Calm: Sleep, Meditate, Relax", subTitle: "Sample App 23", image: "sample-logo-1")
     ]
 }
 
 struct TopFreeApps {
     var listOfApps = [
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2"),
-        AppData(id: UUID(), title: "Zoom App", subTitle: "Sample App 2", image: "sample-logo-2")
+        AppData(id: UUID(), title: "Procreate Pocket", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "TouchRetouch", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "iMotoneige", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Da Vinci Eye", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "iQuad", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Forest Stay Focused", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Procreate Pocket", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "TouchRetouch", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "iMotoneige", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Da Vinci Eye", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "iQuad", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Forest Stay Focused", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Procreate Pocket", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "TouchRetouch", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "iMotoneige", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Da Vinci Eye", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "iQuad", subTitle: "Sample App 2", image: "sample-logo-2"),
+        AppData(id: UUID(), title: "Forest Stay Focused", subTitle: "Sample App 2", image: "sample-logo-2")
     ]
 }
 

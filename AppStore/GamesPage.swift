@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GamesView: View {
     var body: some View {
-        Text("Hello, Game Page!")
+        Text("Hello, Games Page!")
             .padding()
     }
 }

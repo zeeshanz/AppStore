@@ -9,24 +9,39 @@ import Foundation
 import SwiftUI
 
 struct AppsView: View {
+    
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.shadowColor = .clear
+        appearance.backgroundColor = .white
+        UINavigationBar.appearance().standardAppearance = appearance
+    }
+    
     @Environment(\.openURL) var openURL
+    @State private var midY: CGFloat = 0.0
+    @State private var headerText = "Apps"
     var iPhoneStarterKit = AppsStarterKit()
     var topFreeApps = TopFreeApps()
     var numOfRow = 3
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading) {
+                HStack {
+                    HeaderView(headerText: self.headerText, midY: $midY)
+                        .frame(height: 40, alignment: .leading)
+                        .padding(.top, 15)
+                    
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text("Apps").font(.largeTitle).bold()
+                        Button(action: {
+                            print("Profile button pressed")
+                        }) {
+                            Image("Profile").resizable()
+                                .frame(width: 40, height: 40, alignment: .trailing)
+                                .padding(.top, 15)
                         }
-                        Spacer()
-                        Button(action: self.loadProfile, label: {
-                            Image("Profile").resizable().frame(width: 40, height: 40, alignment: .trailing)
-                        })
                     }
-                }.padding()
+                }.padding([.leading, .trailing])
+                
                 Divider()
                 
                 ScrollView(.horizontal, showsIndicators: false, content: {
@@ -39,20 +54,21 @@ struct AppsView: View {
                     }
                 })
                 Divider()
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("iPhone Starter Kit").font(.title2).bold()
+                Group {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("iPhone Starter Kit").font(.title2).bold()
+                            }
+                            Spacer()
+                            Button(action: self.loadProfile, label: {
+                                Text("See All")
+                            })
                         }
-                        Spacer()
-                        Button(action: self.loadProfile, label: {
-                            Text("See All")
-                        })
-                    }
-                }.padding([.leading, .trailing, .top])
-                HorizontalScrollView(items: self.iPhoneStarterKit.listOfApps)
-                Divider()
+                    }.padding([.leading, .trailing, .top])
+                    HorizontalScrollView(items: self.iPhoneStarterKit.listOfApps)
+                    Divider()
+                }
                 
                 VStack(alignment: .leading) {
                     HStack {
@@ -85,14 +101,13 @@ struct AppsView: View {
                 }
                 
             }
-        }.navigationBarTitle("Apps", displayMode: .inline)
-        .navigationBarHidden(true)
+            .navigationBarTitle(self.midY < 70 ? Text(self.headerText) : Text(""), displayMode: .inline)
+        }
     }
     
     func loadProfile() {
         
     }
-
 }
 
 struct AppsStarterKit {

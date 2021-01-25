@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B31CF5F325BE2DBD00A8F8AD /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CF5F225BE2DBD00A8F8AD /* ScrollingHStackModifier.swift */; };
 		B32BE0C225BDD119007D4F69 /* FeaturedPostPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BE0C125BDD119007D4F69 /* FeaturedPostPage.swift */; };
 		B3707E3225BDACBB009885A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3707E3125BDACBB009885A6 /* AppDelegate.swift */; };
 		B3707E3425BDACBB009885A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3707E3325BDACBB009885A6 /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B31CF5F225BE2DBD00A8F8AD /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
 		B32BE0C125BDD119007D4F69 /* FeaturedPostPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPostPage.swift; sourceTree = "<group>"; };
 		B3707E2E25BDACBB009885A6 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3707E3125BDACBB009885A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				B3707E3C25BDACBE009885A6 /* LaunchScreen.storyboard */,
 				B3F7BE7625BDFD0A00E94C90 /* QuickLinksPage.swift */,
 				B3707E3325BDACBB009885A6 /* SceneDelegate.swift */,
+				B31CF5F225BE2DBD00A8F8AD /* ScrollingHStackModifier.swift */,
 				B3707E6925BDAD22009885A6 /* SearchPage.swift */,
 				B3707E6425BDAD15009885A6 /* TabBarPage.swift */,
 				B3707E7D25BDAD44009885A6 /* TodayPage.swift */,
@@ -298,6 +301,7 @@
 			files = (
 				B3707E6525BDAD15009885A6 /* TabBarPage.swift in Sources */,
 				B3707E3225BDACBB009885A6 /* AppDelegate.swift in Sources */,
+				B31CF5F325BE2DBD00A8F8AD /* ScrollingHStackModifier.swift in Sources */,
 				B3F7BE7F25BE088800E94C90 /* BottomButtons.swift in Sources */,
 				B3707E7E25BDAD44009885A6 /* TodayPage.swift in Sources */,
 				B3707E3425BDACBB009885A6 /* SceneDelegate.swift in Sources */,

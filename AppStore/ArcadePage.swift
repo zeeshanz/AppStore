@@ -10,8 +10,13 @@ import SwiftUI
 
 struct ArcadeView: View {
     var body: some View {
-        Text("Hello, Arcade Page!")
-            .padding()
+        NavigationView {
+            ScrollView(showsIndicators: false) {
+                VStack()  {
+                    Text("Hello, Arcade Page!")
+                }
+            }.navigationBarTitle(Text("Arcade Page"))
+        }
     }
 }
 

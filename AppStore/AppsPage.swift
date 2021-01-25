@@ -92,8 +92,9 @@ struct AppsView: View {
                     Button(action: {
                         openURL(URL(string: "https://www.apple.com")!)
                     }) {
-                        HStack {
-                            Text("Terms & Conditions >")
+                        HStack(spacing: 5) {
+                            Text("Terms & Conditions")
+                            Image(systemName: "chevron.right").font(.caption)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.gray)

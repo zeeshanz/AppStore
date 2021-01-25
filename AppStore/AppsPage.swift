@@ -13,13 +13,14 @@ struct AppsView: View {
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
-        appearance.backgroundColor = .white
+//        appearance.backgroundColor = .white
+        appearance.backgroundEffect = .init(style: .light)
         UINavigationBar.appearance().standardAppearance = appearance
     }
     
     @Environment(\.openURL) var openURL
     @State private var midY: CGFloat = 0.0
-    @State private var headerText = "Apps"
+    @State private var headerText = "Apps1"
     var iPhoneStarterKit = AppsStarterKit()
     var topFreeApps = TopFreeApps()
     var numOfRow = 3
@@ -35,7 +36,7 @@ struct AppsView: View {
                         Button(action: {
                             print("Profile button pressed")
                         }) {
-                            Image("Profile").resizable()
+                            Image(systemName: "person.crop.circle").resizable()
                                 .frame(width: 40, height: 40, alignment: .trailing)
                                 .padding(.top, 15)
                         }
@@ -94,7 +95,7 @@ struct AppsView: View {
                         HStack {
                             Text("Terms & Conditions >")
                         }
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.gray)
                         .cornerRadius(10)
                     }.padding()

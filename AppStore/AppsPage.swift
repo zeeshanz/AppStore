@@ -45,15 +45,23 @@ struct AppsView: View {
                 
                 Divider()
                 
-                ScrollView(.horizontal, showsIndicators: false, content: {
-                    HStack {
-                        FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
-                        FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
-                        FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
-                        FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
-                        FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
-                    }
-                })
+                
+                    HStack(spacing: 12) {
+//                        FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
+//                        FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
+//                        FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
+//                        FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
+//                        FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
+                        ZStack { }.frame(width: 300, height: 230).background(Color.green)
+                        ZStack { }.frame(width: 300, height: 230).background(Color.yellow)
+                        ZStack { }.frame(width: 300, height: 230).background(Color.blue)
+                        ZStack { }.frame(width: 300, height: 230).background(Color.green)
+                        ZStack { }.frame(width: 300, height: 230).background(Color.yellow)
+                    }.frame(width: 350)
+//                    .background(Color.purple).frame(width: 300, height: 230)
+                    .modifier(ScrollingHStackModifier(items: 5, itemWidth: 300, itemSpacing: 12))
+                
+                
                 Divider()
                 Group {
                     VStack(alignment: .leading) {

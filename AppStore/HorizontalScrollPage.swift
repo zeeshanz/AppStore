@@ -12,7 +12,6 @@ struct HorizontalScrollView: View {
     var items: [AppData]
     var body: some View {
         VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
                 ForEach(0 ..< 3) {
                     row in
                     HStack {
@@ -20,9 +19,8 @@ struct HorizontalScrollView: View {
                             column in
                             AppCell(data: self.items[self.determineCurrentCell(row: row, column: column)])
                         }
-                    }
+                    }.modifier(ScrollingHStackModifier(items: 3, itemWidth: 250, itemSpacing: 30))
                 }
-            }
         }
     }
     

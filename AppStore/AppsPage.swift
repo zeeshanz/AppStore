@@ -13,7 +13,6 @@ struct AppsView: View {
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
-//        appearance.backgroundColor = .white
         appearance.backgroundEffect = .init(style: .light)
         UINavigationBar.appearance().standardAppearance = appearance
     }
@@ -45,15 +44,15 @@ struct AppsView: View {
                 
                 Divider()
                 
-                ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack {
                         FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
                         FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
                         FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
                         FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
                         FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
-                    }
-                })
+                    }.modifier(ScrollingHStackModifier(items: 5, itemWidth: 250, itemSpacing: 30))
+                
+                
                 Divider()
                 Group {
                     VStack(alignment: .leading) {

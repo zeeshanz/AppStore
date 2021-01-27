@@ -11,15 +11,19 @@ struct ScrollingHStackModifier: ViewModifier {
     @State private var scrollOffset: CGFloat
     @State private var dragOffset: CGFloat
     
-    var items: Int
-    var itemWidth: CGFloat
-    var itemSpacing: CGFloat
+    let items: Int
+    let itemWidth: CGFloat
+    let itemSpacing: CGFloat
     let contentWidth: CGFloat
+    let snapPointSpacing: CGFloat
+    let leadingPageOffset: CGFloat
     
     init(items: Int, itemWidth: CGFloat, itemSpacing: CGFloat) {
         self.items = items
         self.itemWidth = itemWidth
         self.itemSpacing = itemSpacing
+        self.snapPointSpacing = self.itemWidth + self.itemSpacing
+        self.leadingPageOffset = self.snapPointSpacing * CGFloat(self.items - 1) / 2
         
         // Calculate Total Content Width
         self.contentWidth = CGFloat(items) * itemWidth + CGFloat(items - 1) * itemSpacing
@@ -41,6 +45,9 @@ struct ScrollingHStackModifier: ViewModifier {
                     print("scrollOffset = \(scrollOffset), dragOffset = \(dragOffset)")
                 })
                 .onEnded({ event in
+                    
+                    let predictedOffset = scrollOffset + event.predictedEndTranslation.width
+                    
                     // Scroll to where user dragged
                     scrollOffset += event.translation.width
                     dragOffset = 0
@@ -48,27 +55,24 @@ struct ScrollingHStackModifier: ViewModifier {
                     // Now calculate which item to snap to
                     let screenWidth = UIScreen.main.bounds.width
                     
-                    // Center position of current offset
-                    let center = scrollOffset + (screenWidth / 2.0) + (contentWidth / 2.0)
-                    
-                    // Calculate which item we are closest to using the defined size
-                    var index = (center - (screenWidth / 2.0)) / (itemWidth + itemSpacing)
+                    // Calculate the pages we are between to get potential targets
+                    let currentIndex = (leadingPageOffset - scrollOffset) / (snapPointSpacing)
+
+                    let lowerBound = max(currentIndex.rounded(.down), 0)
+                    let upperBound = min(currentIndex.rounded(.up), CGFloat(items) - 1)
+
+                    // Calculate predicted destnation
+                    var predictedIndex = (leadingPageOffset - predictedOffset) / (snapPointSpacing)
                     
                     print("screenWidth = \(screenWidth), itemWidth = \(itemWidth), itemSpacing = \(itemSpacing)")
-                    print("scrollOffset = \(scrollOffset), center = \(center), index = \(index)")
-                    // Should we stay at current index or are we closer to the next item...
-                    if index.remainder(dividingBy: 1) > 0.5 {
-                        index += 1
-                    } else {
-                        index = CGFloat(Int(index))
-                    }
+                    print("scrollOffset = \(scrollOffset), currentIndex = \(currentIndex), predictedIndex = \(predictedIndex)")
                     
-                    // Protect from scrolling out of bounds
-                    index = min(index, CGFloat(items) - 1)
-                    index = max(index, 0)
+                    predictedIndex.round(.toNearestOrEven)
                     
-                    // Set final offset (snapping to item)
-                    let newOffset = index * itemWidth + (index - 1) * itemSpacing - (contentWidth / 2.0) + (screenWidth / 2.0) - ((screenWidth - itemWidth) / 2.0) + itemSpacing
+                    predictedIndex = min(predictedIndex, upperBound)
+                    predictedIndex = max(predictedIndex, lowerBound)
+                    
+                    let newOffset = self.leadingPageOffset - (predictedIndex * snapPointSpacing)
                     
                     // Animate snapping
                     withAnimation(.interactiveSpring()) {

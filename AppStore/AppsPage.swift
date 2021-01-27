@@ -18,20 +18,16 @@ struct AppsView: View {
     }
     
     var numberOfItems: Int {
-        return 5
+        return 3
     }
     var itemSpacing: CGFloat {
-        return 160
+        return 100
     }
     var overlap: CGFloat {
-        return 200
+        return 20
     }
     var itemWidth: CGFloat {
-        return UIApplication.shared.screenWidth - itemSpacing - overlap
-    }
-    var contentSize: CGFloat {
-        let numItems = CGFloat(numberOfItems)
-        return numItems * itemWidth + numItems * itemSpacing
+        return UIApplication.shared.screenWidth - 2 * (itemSpacing + overlap)
     }
     
     var colors: [Color] = [Color.red, Color.orange, Color.yellow, Color.green, Color.init(.systemTeal), Color.blue, Color.purple]
@@ -73,7 +69,7 @@ struct AppsView: View {
                                 }
                             }
                         }
-                        .padding(EdgeInsets(top: 0, leading: itemSpacing + itemWidth, bottom: 0, trailing: itemSpacing + itemWidth))
+                        .padding(EdgeInsets(top: 0, leading: itemSpacing + overlap, bottom: 0, trailing: itemSpacing + overlap))
                         .background(Color.init(white: 1.0, opacity: 0.3))
                     }.frame(width: UIApplication.shared.screenWidth)
                     .modifier(ScrollingHStackModifier(items: numberOfItems, itemWidth: itemWidth, itemSpacing: itemSpacing))

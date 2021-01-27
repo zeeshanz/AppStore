@@ -14,6 +14,7 @@ struct ScrollingHStackModifier: ViewModifier {
     var items: Int
     var itemWidth: CGFloat
     var itemSpacing: CGFloat
+    let contentWidth: CGFloat
     
     init(items: Int, itemWidth: CGFloat, itemSpacing: CGFloat) {
         self.items = items
@@ -21,7 +22,7 @@ struct ScrollingHStackModifier: ViewModifier {
         self.itemSpacing = itemSpacing
         
         // Calculate Total Content Width
-        let contentWidth: CGFloat = CGFloat(items) * itemWidth + CGFloat(items - 1) * itemSpacing
+        self.contentWidth = CGFloat(items) * itemWidth + CGFloat(items - 1) * itemSpacing
         let screenWidth = UIScreen.main.bounds.width
         
         // Set Initial Offset to first Item
@@ -37,6 +38,7 @@ struct ScrollingHStackModifier: ViewModifier {
             .gesture(DragGesture()
                 .onChanged({ event in
                     dragOffset = event.translation.width
+                    print("scrollOffset = \(scrollOffset), dragOffset = \(dragOffset)")
                 })
                 .onEnded({ event in
                     // Scroll to where user dragged
@@ -44,7 +46,6 @@ struct ScrollingHStackModifier: ViewModifier {
                     dragOffset = 0
                     
                     // Now calculate which item to snap to
-                    let contentWidth: CGFloat = CGFloat(items) * itemWidth + CGFloat(items - 1) * itemSpacing
                     let screenWidth = UIScreen.main.bounds.width
                     
                     // Center position of current offset
@@ -53,6 +54,8 @@ struct ScrollingHStackModifier: ViewModifier {
                     // Calculate which item we are closest to using the defined size
                     var index = (center - (screenWidth / 2.0)) / (itemWidth + itemSpacing)
                     
+                    print("screenWidth = \(screenWidth), itemWidth = \(itemWidth), itemSpacing = \(itemSpacing)")
+                    print("scrollOffset = \(scrollOffset), center = \(center), index = \(index)")
                     // Should we stay at current index or are we closer to the next item...
                     if index.remainder(dividingBy: 1) > 0.5 {
                         index += 1
@@ -68,7 +71,7 @@ struct ScrollingHStackModifier: ViewModifier {
                     let newOffset = index * itemWidth + (index - 1) * itemSpacing - (contentWidth / 2.0) + (screenWidth / 2.0) - ((screenWidth - itemWidth) / 2.0) + itemSpacing
                     
                     // Animate snapping
-                    withAnimation {
+                    withAnimation(.interactiveSpring()) {
                         scrollOffset = newOffset
                     }
                     

@@ -13,10 +13,28 @@ struct AppsView: View {
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
-//        appearance.backgroundColor = .white
         appearance.backgroundEffect = .init(style: .light)
         UINavigationBar.appearance().standardAppearance = appearance
     }
+    
+    var numberOfItems: Int {
+        return 5
+    }
+    var itemSpacing: CGFloat {
+        return 160
+    }
+    var overlap: CGFloat {
+        return 200
+    }
+    var itemWidth: CGFloat {
+        return UIApplication.shared.screenWidth - itemSpacing - overlap
+    }
+    var contentSize: CGFloat {
+        let numItems = CGFloat(numberOfItems)
+        return numItems * itemWidth + numItems * itemSpacing
+    }
+    
+    var colors: [Color] = [Color.red, Color.orange, Color.yellow, Color.green, Color.init(.systemTeal), Color.blue, Color.purple]
     
     @Environment(\.openURL) var openURL
     @State private var midY: CGFloat = 0.0
@@ -45,22 +63,22 @@ struct AppsView: View {
                 
                 Divider()
                 
-                
-                    HStack(spacing: 12) {
-//                        FeaturedPostView(captionText: "GET STARTED", titleText: "The Sims Freeplay", subTitleText: "Bonjour From Paris", image: "sample-app-1")
-//                        FeaturedPostView(captionText: "FEATURED", titleText: "Daily Food Tracker", subTitleText: "Eat Healthy", image: "sample-app-2")
-//                        FeaturedPostView(captionText: "STAT UP-TO-DATE", titleText: "COVID Alert", subTitleText: "COVID-19 Updates", image: "sample-app-3")
-//                        FeaturedPostView(captionText: "NEW FEATURES", titleText: "Sportsnet", subTitleText: "All the sports all the time", image: "sample-app-4")
-//                        FeaturedPostView(captionText: "GREAT ON APPLE WATCH", titleText: "HockeyTracker", subTitleText: "Performance stats at a glance", image: "sample-app-5")
-                        ZStack { }.frame(width: 300, height: 230).background(Color.green)
-                        ZStack { }.frame(width: 300, height: 230).background(Color.yellow)
-                        ZStack { }.frame(width: 300, height: 230).background(Color.blue)
-                        ZStack { }.frame(width: 300, height: 230).background(Color.green)
-                        ZStack { }.frame(width: 300, height: 230).background(Color.yellow)
-                    }.frame(width: 350)
-//                    .background(Color.purple).frame(width: 300, height: 230)
-                    .modifier(ScrollingHStackModifier(items: 5, itemWidth: 300, itemSpacing: 12))
-                
+                ZStack {
+                    HStack(spacing: 0) {
+                        HStack(spacing: itemSpacing) {
+                            ForEach(0 ..< numberOfItems) { itemNumber in
+                                VStack(alignment: .leading) {
+                                    Text("\(itemNumber)")
+                                    colors[itemNumber % colors.count].frame(width: itemWidth, height: 100, alignment: .center)
+                                }
+                            }
+                        }
+                        .padding(EdgeInsets(top: 0, leading: itemSpacing + itemWidth, bottom: 0, trailing: itemSpacing + itemWidth))
+                        .background(Color.init(white: 1.0, opacity: 0.3))
+                    }.frame(width: UIApplication.shared.screenWidth)
+                    .modifier(ScrollingHStackModifier(items: numberOfItems, itemWidth: itemWidth, itemSpacing: itemSpacing))
+                    .background(Color.black)
+                }.background(Color.orange)
                 
                 Divider()
                 Group {

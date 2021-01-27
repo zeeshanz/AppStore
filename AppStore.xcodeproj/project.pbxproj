@@ -27,6 +27,7 @@
 		B3F7BE6F25BDDD1100E94C90 /* HorizontalScrollPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7BE6E25BDDD1100E94C90 /* HorizontalScrollPage.swift */; };
 		B3F7BE7725BDFD0A00E94C90 /* QuickLinksPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7BE7625BDFD0A00E94C90 /* QuickLinksPage.swift */; };
 		B3F7BE7F25BE088800E94C90 /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7BE7E25BE088700E94C90 /* BottomButtons.swift */; };
+		D87111DD25C0A65100F6F9F0 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87111DC25C0A65100F6F9F0 /* UIApplication+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		B3F7BE6E25BDDD1100E94C90 /* HorizontalScrollPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollPage.swift; sourceTree = "<group>"; };
 		B3F7BE7625BDFD0A00E94C90 /* QuickLinksPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLinksPage.swift; sourceTree = "<group>"; };
 		B3F7BE7E25BE088700E94C90 /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
+		D87111DC25C0A65100F6F9F0 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		B3707E3025BDACBB009885A6 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				D87111DB25C0A64400F6F9F0 /* Extensions */,
 				B3707E3125BDACBB009885A6 /* AppDelegate.swift */,
 				B3707E7325BDAD31009885A6 /* AppsPage.swift */,
 				B3707E6E25BDAD2A009885A6 /* ArcadePage.swift */,
@@ -170,6 +173,14 @@
 				B3707E5525BDACBF009885A6 /* Info.plist */,
 			);
 			path = AppStoreUITests;
+			sourceTree = "<group>";
+		};
+		D87111DB25C0A64400F6F9F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D87111DC25C0A65100F6F9F0 /* UIApplication+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				B31CF5F325BE2DBD00A8F8AD /* ScrollingHStackModifier.swift in Sources */,
 				B3F7BE7F25BE088800E94C90 /* BottomButtons.swift in Sources */,
 				B3707E7E25BDAD44009885A6 /* TodayPage.swift in Sources */,
+				D87111DD25C0A65100F6F9F0 /* UIApplication+Extensions.swift in Sources */,
 				B3707E3425BDACBB009885A6 /* SceneDelegate.swift in Sources */,
 				B3707E3625BDACBB009885A6 /* ContentView.swift in Sources */,
 				B3707E7925BDAD38009885A6 /* GamesPage.swift in Sources */,

@@ -18,13 +18,13 @@ struct AppsView: View {
     }
     
     var numberOfItems: Int {
-        return 3
+        return 13
     }
     var itemSpacing: CGFloat {
-        return 100
-    }
-    var overlap: CGFloat {
         return 20
+    }
+    var overlap: CGFloat { // How much of the previous/next item is visible.
+        return 10
     }
     var itemWidth: CGFloat {
         return UIApplication.shared.screenWidth - 2 * (itemSpacing + overlap)
@@ -70,7 +70,7 @@ struct AppsView: View {
                             }
                         }
                         .padding(EdgeInsets(top: 0, leading: itemSpacing + overlap, bottom: 0, trailing: itemSpacing + overlap))
-                        .background(Color.init(white: 1.0, opacity: 0.3))
+                        .background(Color.init(white: 1.0, opacity: 0.3)) // This view needs a color, or swiping won't work when touching gaps between items.
                     }.frame(width: UIApplication.shared.screenWidth)
                     .modifier(ScrollingHStackModifier(items: numberOfItems, itemWidth: itemWidth, itemSpacing: itemSpacing))
                     .background(Color.black)

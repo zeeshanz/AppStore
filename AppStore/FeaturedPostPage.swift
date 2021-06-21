@@ -16,7 +16,7 @@ struct FeaturedPostView : View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(captionText).font(.caption).foregroundColor(.blue)
-            Text(titleText).font(.title3).bold()
+            Text(titleText).bold()
             Text(subTitleText).font(.subheadline).foregroundColor(.gray)
             Image(image).resizable().frame(width: (UIApplication.shared.windows.first?.frame.width ?? 0) - 50, height: 230, alignment: .center).cornerRadius(5.0)
         }.frame(width: 300, height: 230)

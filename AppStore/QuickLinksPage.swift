@@ -14,13 +14,13 @@ struct QuickLinksView: View {
             HStack {
                 VStack(alignment: .leading) {
                     VStack() {
-                        Text("Quick Links").font(.title2).bold()
+                        Text("Quick Links").font(.title).bold()
                     }.padding([.bottom])
-                    Button("About In-App Purchases") {}.font(.title2)
+                    Button("About In-App Purchases") {}.font(.title)
                     Divider()
-                    Button("Parents Guide to the App Store") {}.font(.title2)
+                    Button("Parents Guide to the App Store") {}.font(.title)
                     Divider()
-                    Button("Apps in French") {}.font(.title2)
+                    Button("Apps in French") {}.font(.title)
                     Divider()
                 }
             }

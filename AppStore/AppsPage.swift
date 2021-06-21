@@ -23,7 +23,8 @@ struct AppsView: View {
     var itemSpacing: CGFloat {
         return 20
     }
-    var overlap: CGFloat { // How much of the previous/next item is visible.
+    var overlap: CGFloat {
+        // How much of the previous/next item is visible.
         return 10
     }
     var itemWidth: CGFloat {
@@ -32,9 +33,8 @@ struct AppsView: View {
     
     var colors: [Color] = [Color.red, Color.orange, Color.yellow, Color.green, Color.init(.systemTeal), Color.blue, Color.purple]
     
-    @Environment(\.openURL) var openURL
     @State private var midY: CGFloat = 0.0
-    @State private var headerText = "Apps1"
+    @State private var headerText = "Apps2"
     var iPhoneStarterKit = AppsStarterKit()
     var topFreeApps = TopFreeApps()
     var numOfRow = 3
@@ -81,7 +81,7 @@ struct AppsView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text("iPhone Starter Kit").font(.title2).bold()
+                                Text("iPhone Starter Kit").font(.title)
                             }
                             Spacer()
                             Button(action: self.loadProfile, label: {
@@ -96,7 +96,7 @@ struct AppsView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Top Free Apps").font(.title2).bold()
+                            Text("Top Free Apps").font(.title)
                         }
                         Spacer()
                         Button(action: self.loadProfile, label: {
@@ -112,7 +112,6 @@ struct AppsView: View {
                     BottomButtonsView()
                     Divider()
                     Button(action: {
-                        openURL(URL(string: "https://www.apple.com")!)
                     }) {
                         HStack(spacing: 5) {
                             Text("Terms & Conditions")

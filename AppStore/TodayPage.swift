@@ -42,12 +42,10 @@ struct HighlightView: View {
         VStack {
             ZStack {
                 Image(image).resizable()
-                LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
                 
                 VStack(alignment: .leading) {
                     Text(category).foregroundColor(.white).bold()
                     Text(title).foregroundColor(.white).font(.title).bold()
-                    Spacer()
                     Text(message).foregroundColor(.white)
                 }.padding()
             }

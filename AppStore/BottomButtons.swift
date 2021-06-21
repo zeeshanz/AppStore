@@ -15,7 +15,7 @@ struct BottomButtonsView: View {
                 print("Button action")
             }) {
                 HStack {
-                    Text("Redeem").font(.title3)
+                    Text("Redeem")
                 }.padding(10)
                 .frame(maxWidth: .infinity)
                 .background(Color.gray.opacity(0.15))
@@ -25,7 +25,7 @@ struct BottomButtonsView: View {
                 print("Button action")
             }) {
                 HStack {
-                    Text("Send Gift").font(.title3)
+                    Text("Send Gift")
                 }.padding(10)
                 .frame(maxWidth: .infinity)
                 .background(Color.gray.opacity(0.15))
@@ -35,7 +35,7 @@ struct BottomButtonsView: View {
                 print("Button action")
             }) {
                 HStack {
-                    Text("Add Funds to Apple ID").font(.title3)
+                    Text("Add Funds to Apple ID")
                 }.padding(10)
                 .frame(maxWidth: .infinity)
                 .background(Color.gray.opacity(0.15))
